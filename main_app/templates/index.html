@@ -7,51 +7,49 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
 	</head>
 	<body>
-		<nav class="navbar navbar-default navbar-static-top text-center">
-			<a href="/">
-				<img src="{% static 'images/logo.jpg' %}" alt="TreasureGram" />
-			</a>
+		<nav>
+			<img class = "logo" src="{% static 'images/logo.jpg' %}" alt="TreasureGram" />
 		</nav>
 		<main class="container" rule="main">
-			<div class="treasure panel panel-default">
-				{% for treasure in treasures %}
-				<div class="panel-heading">
-					<h2 class="panel-title">{{ treasure.name }}</h2>
+			{% for treasure in treasures %}
+				<div class="treasure-panel">
+					<div class="treasure-heading">
+						<h2>{{ treasure.name }}</h2>
+					</div>
+					<div class="treasure-contents">
+						<table>
+							<tr>
+								<th>
+									<h3>Material</h3>
+								</th>
+								<td>
+									{{ treasure.material }}
+								</td>
+							</tr>
+							<tr>							
+								<th>
+									<h3>Value</h3>
+								</th>
+								<td>
+									{% if treasure.value > 0 %}
+										{{ treasure.value }}
+									{% else %}
+										<h3>Unknown</h3>
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									<h3>Location</h3>
+								</th>
+								<td>
+									{{ treasure.location }}
+								</td>
+							</tr>
+						</table>
+					</div>
 				</div>
-				<div class="panel-body">
-					<table class="treasure-table table">
-						<tr>
-							<th>
-								<h3>Material</h3>
-							</th>
-							<td>
-								{{ treasure.material }}
-							</td>
-						</tr>
-						<tr>							
-							<th>
-								<h3>Value</h3>
-							</th>
-							<td>
-								{% if treasure.value > 0 %}
-									{{ treasure.value }}
-								{% else %}
-									{{ Unknown }}
-								{% endif %}
-							</td>
-						</tr>
-						<tr>
-							<th>
-								<h3>Location</h3>
-							</th>
-							<td>
-								{{ treasure.location }}
-							</td>
-						</tr>
-					</table>
-				</div>
-				{% endfor %}
-			</div>
+			{% endfor %}
 		</main>
 	</body>
 </html>

@@ -1,0 +1,52 @@
+body {
+	background-color: #F2BE79;
+	font-size: 16px;
+}
+
+nav {
+	background-color: white;
+}
+
+.logo {
+	display: block;
+	margin: auto;
+}
+
+.treasure-panel {
+	background-color: #FFD399;
+	margin: 15px 0 0 0;
+	border-radius: 15px;
+	border: 1px solid #221100;
+}
+
+.treasure-heading {
+	background-color: #FFE9CC;
+	border-bottom: 1px solid #221100;
+	padding: 10px 5px;
+	border-radius: 15px 15px 0 0;
+}
+
+	.treasure-heading h2 {
+		color: #221100;
+		font-size: 2em;
+		font-weight: bolder;
+		text-align: center;
+	}
+
+.treasure-contents {
+	margin: 0 0 15px 0;
+}
+
+table {
+	width: 100%;
+}
+
+th, td {
+	color: #573200;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+th {
+	font-weight: bolder;
+}
