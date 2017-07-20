@@ -10,7 +10,7 @@
 							<h2 class="panel-title">{{ treasure.name }}</h2>
 						</div>
 						<div class="treasure-photo">
-							<!-- <img src="{{ treasure.img_url }}" height="100">-->
+							<img src="{{ treasure.image.url }}" height="100">
 						</div>
 					</div>
 				</a>
@@ -25,7 +25,7 @@
 				<h3 class="panel-title">Add Treasure</h3>
 			</div>
 			<div class="panel-body">
-				<form action="post_url/" method="post">
+				<form enctype="multipart/form-data" action="post_url/" method="post">
 					{% csrf_token %}
 					{{ form.as_p }}
 					<input type="submit" value="Submit" />
