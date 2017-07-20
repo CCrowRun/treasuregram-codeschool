@@ -1,55 +1,23 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>TreasureGram</title>
-		<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" />
-		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-	</head>
-	<body>
-		<nav>
-			<img class = "logo" src="{% static 'images/logo.jpg' %}" alt="TreasureGram" />
-		</nav>
-		<main class="container" rule="main">
-			{% for treasure in treasures %}
-				<div class="treasure-panel">
-					<div class="treasure-heading">
-						<h2>{{ treasure.name }}</h2>
+	{% block content %}
+		<div class="row">
+		{% for treasure in treasures %}
+			<div class="col-md-4">
+				<a href="/{{treasure.id}}/">
+					<div class="treasure panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title">{{ treasure.name }}</h2>
+						</div>
+						<div class="treasure-photo">
+							<!-- <img src="{{ treasure.img_url }}" height="100">-->
+						</div>
 					</div>
-					<div class="treasure-contents">
-						<table>
-							<tr>
-								<th>
-									<h3>Material</h3>
-								</th>
-								<td>
-									{{ treasure.material }}
-								</td>
-							</tr>
-							<tr>							
-								<th>
-									<h3>Value</h3>
-								</th>
-								<td>
-									{% if treasure.value > 0 %}
-										{{ treasure.value }}
-									{% else %}
-										<h3>Unknown</h3>
-									{% endif %}
-								</td>
-							</tr>
-							<tr>
-								<th>
-									<h3>Location</h3>
-								</th>
-								<td>
-									{{ treasure.location }}
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-			{% endfor %}
-		</main>
-	</body>
-</html>
+				</a>
+			</div>
+		{% if forloop.counter|divisibleby:3 %}
+			</div><div class="row">
+		{% endif %}
+		{% endfor %}
+		</div>
+	{% endblock %}
