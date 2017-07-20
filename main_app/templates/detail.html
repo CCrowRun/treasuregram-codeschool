@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+	{% block content %}
 		<div class="panel-heading">
 			<h3>{{ treasure.name }}</h3>
 		</div>
@@ -16,5 +13,4 @@
 				<p>{{ treasure.location }}</p>
 			</div>
 		</div>
-	</body>
-</html>
+	{% endblock %}
