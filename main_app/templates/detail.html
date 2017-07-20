@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+	{% block content %}
+		<div class="panel-heading">
+			<h3>{{ treasure.name }}</h3>
+		</div>
+		<div class="panel-body">
+			<div class="treasure-photo-detail">
+				<img src="{{ treasure.img_url }}" height="200">
+			</div>
+			<div>
+				<p>{{ treasure.value }}</p>
+				<p>{{ treasure.location }}</p>
+			</div>
+		</div>
+	{% endblock %}

@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TreasureGram</title>
+		<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	</head>
+	<body>
+		<nav>
+			<img class = "logo" src="{% static 'images/logo.jpg' %}" alt="TreasureGram" />
+		</nav>
+		<main class="container container--mw700" rule="main">
+			{% block content %}
+			{% endblock %}
+		</main>
+		<footer>
+		</footer>
+	</body>
+</html>
