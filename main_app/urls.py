@@ -10,6 +10,7 @@ urlpatterns = [
 		views.detail, name = 'detail'),
 	url(r'^post_url/$', views.post_treasure, name='post_treasure'),
 	url(r'^login/$', views.login_view, name='login'),
+	url(r'^logout/$', views.logout_view, name='logout'),
 ]
 
 if settings.DEBUG:
