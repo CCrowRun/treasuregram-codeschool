@@ -1,10 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.core.urlresolvers import reverse
 from .models import Treasure
 from .forms import TreasureForm, LoginForm
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
 
 # Create your views here.
 #Home page view - displays grid
@@ -60,7 +61,7 @@ def logout_view(request):
 
 #AJAX interaction for liking a treasure
 def like_treasure(request):
-	treasure_id = request.GET.get('treasure_id', None)
+	treasure_id = request.POST.get('treasure_id', None)
 	likes = 0
 	if (treasure_id):
 		treasure = Treasure.objects.get(id=int(treasure_id))
