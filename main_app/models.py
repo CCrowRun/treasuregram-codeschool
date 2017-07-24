@@ -11,6 +11,7 @@ class Treasure(models.Model):
 	location = models.CharField(max_length=100)
 	image = models.ImageField(upload_to = 'treasure_images',
 		default = 'media/default.png')
+	likes = models.IntegerField(default=0)
 
 	def __str__(self):
 		return self.name

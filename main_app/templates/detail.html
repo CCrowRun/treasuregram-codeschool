@@ -12,5 +12,8 @@
 				<p>{{ treasure.value }}</p>
 				<p>{{ treasure.location }}</p>
 			</div>
+			<button id="likes" data-id="{{treasure.id}}" class="btn btn-mini btn-danger" type = "button">
+				{{ treasure.likes }}
+			</button>
 		</div>
 	{% endblock %}

@@ -16,6 +16,9 @@
 							<img src="{{ treasure.image.url }}" height="100">
 						</div>
 					</a>
+					<button id="likes" data-id="{{treasure.id}}" class="btn btn-mini btn-danger" type = "button">
+						{{ treasure.likes }}
+					</button>
 				</div>
 			</div>
 		{% if forloop.counter|divisibleby:3 %}

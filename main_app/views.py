@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from .models import Treasure
 from .forms import TreasureForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
@@ -56,3 +57,15 @@ def login_view(request):
 def logout_view(request):
 	logout(request)
 	return HttpResponseRedirect('/')
+
+#AJAX interaction for liking a treasure
+def like_treasure(request):
+	treasure_id = request.GET.get('treasure_id', None)
+	likes = 0
+	if (treasure_id):
+		treasure = Treasure.objects.get(id=int(treasure_id))
+		if treasure is not None:
+			likes = treasure.likes + 1
+			treasure.likes = likes
+			treasure.save()
+	return HttpResponse(likes)
